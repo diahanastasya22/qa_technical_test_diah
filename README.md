@@ -50,7 +50,7 @@ cp .env.example .env
 copy .env.example .env
 ```
 
-### 5️⃣ Generate Kunci Aplikasi
+### 5️⃣ Generate Application Key
 
 ```bash
 php artisan key:generate
@@ -62,11 +62,11 @@ Buka file `.env` dan sesuaikan konfigurasi berikut dengan pengaturan database An
 
 ```env
 DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
+DB_HOST=db4free.net
 DB_PORT=3306
-DB_DATABASE=nama_database_anda
-DB_USERNAME=user_database_anda
-DB_PASSWORD=password_anda
+DB_DATABASE=db_tech_test
+DB_USERNAME=diah_22
+DB_PASSWORD=diah100%
 ```
 
 > 💡 **Catatan:** Pastikan Anda telah membuat **database kosong** dengan nama yang sesuai sebelum menjalankan migrasi.
