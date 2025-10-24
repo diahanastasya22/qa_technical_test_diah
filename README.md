@@ -1,82 +1,111 @@
-🧾 API Technical Test - Data Transaksi
+# 🧾 API Technical Test - Data Transaksi
 
-Proyek ini merupakan API sederhana berbasis Laravel yang dibuat untuk memenuhi technical test. Aplikasi ini berfungsi untuk mengambil data transaksi dari database dan menampilkannya dalam format JSON sesuai spesifikasi yang telah ditentukan.
+Proyek ini merupakan **API sederhana berbasis Laravel** yang dibuat untuk memenuhi **technical test**.  
+Aplikasi ini berfungsi untuk mengambil data transaksi dari database dan menampilkannya dalam format **JSON** sesuai spesifikasi yang telah ditentukan.
 
-⚙️ Prasyarat
+---
 
-Sebelum memulai, pastikan perangkat lunak berikut sudah terinstal di komputer Anda:
+## ⚙️ Prasyarat
 
-PHP ≥ 8.1
+Sebelum memulai, pastikan perangkat berikut sudah terinstal di komputer Anda:
 
-Composer
+- **PHP** ≥ 8.1  
+- **Composer**  
+- **Database** (menggunakan **MySQL** dalam contoh ini)  
+- **Git**
 
-Database (menggunakan MySQL dalam contoh ini)
+---
 
-Git
-
-🚀 Instalasi & Konfigurasi
+## 🚀 Instalasi & Konfigurasi
 
 Ikuti langkah-langkah berikut untuk menjalankan proyek secara lokal:
 
-1. Clone Repository
+### 1️⃣ Clone Repository
+
+```bash
 git clone https://github.com/diahanastasya22/qa_technical_test_diah.git
+```
 
-2. Masuk ke Direktori Proyek
+### 2️⃣ Masuk ke Direktori Proyek
+
+```bash
 cd qa-technical-test-diah
+```
 
-3. Install Dependensi PHP
+### 3️⃣ Install Dependensi PHP
+
+```bash
 composer install
+```
 
-4. Siapkan File Konfigurasi Lingkungan (.env)
+### 4️⃣ Siapkan File Konfigurasi Lingkungan (.env)
 
-Salin file contoh .env.example menjadi .env.
+Salin file contoh `.env.example` menjadi `.env`.
 
+```bash
 # Untuk pengguna Mac/Linux
 cp .env.example .env
 
 # Untuk pengguna Windows
 copy .env.example .env
+```
 
-5. Generate Kunci Aplikasi
+### 5️⃣ Generate Kunci Aplikasi
+
+```bash
 php artisan key:generate
+```
 
-6. Konfigurasi Database
+### 6️⃣ Konfigurasi Database
 
-Buka file .env dan sesuaikan konfigurasi database Anda:
+Buka file `.env` dan sesuaikan konfigurasi berikut dengan pengaturan database Anda:
 
+```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=nama_database_anda
 DB_USERNAME=user_database_anda
 DB_PASSWORD=password_anda
+```
 
+> 💡 **Catatan:** Pastikan Anda telah membuat **database kosong** dengan nama yang sesuai sebelum menjalankan migrasi.
 
-💡 Catatan: Pastikan Anda telah membuat database kosong dengan nama yang sesuai sebelum menjalankan migrasi.
-
-7. Jalankan Migrasi & Seeder
+### 7️⃣ Jalankan Migrasi & Seeder
 
 Perintah berikut akan membuat tabel dan mengisi data awal dari file JSON:
 
+```bash
 php artisan migrate --seed
+```
 
-▶️ Menjalankan Aplikasi
+---
+
+## ▶️ Menjalankan Aplikasi
 
 Setelah semua langkah di atas selesai, jalankan server lokal dengan:
 
+```bash
 php artisan serve
+```
 
+Aplikasi Anda kini dapat diakses di:  
+👉 **[http://127.0.0.1:8000](http://127.0.0.1:8000)**
 
-Aplikasi Anda kini dapat diakses di:
-👉 http://127.0.0.1:8000
+---
 
-📡 Endpoint API
-Mendapatkan Data Transaksi
+## 📡 Endpoint API
 
-Method: GET
-URL: http://127.0.0.1:8000/api/transactions
+### Mendapatkan Data Transaksi
 
-✅ Contoh Response Sukses
+**Method:** `GET`  
+**URL:** `http://127.0.0.1:8000/api/transactions`
+
+---
+
+### ✅ Contoh Response Sukses
+
+```json
 {
   "data": [
     {
@@ -113,3 +142,14 @@ URL: http://127.0.0.1:8000/api/transactions
     }
   ]
 }
+```
+
+---
+
+## 🧰 Teknologi yang Digunakan
+
+- **Laravel** — Framework PHP modern untuk pengembangan web.  
+- **MySQL** — Sistem manajemen basis data relasional.  
+- **Composer** — Dependency manager untuk PHP.
+
+---
