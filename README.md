@@ -1,66 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+🧾 API Technical Test - Data Transaksi
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Proyek ini merupakan API sederhana berbasis Laravel yang dibuat untuk memenuhi technical test. Aplikasi ini berfungsi untuk mengambil data transaksi dari database dan menampilkannya dalam format JSON sesuai spesifikasi yang telah ditentukan.
 
-## About Laravel
+⚙️ Prasyarat
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Sebelum memulai, pastikan perangkat lunak berikut sudah terinstal di komputer Anda:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+PHP ≥ 8.1
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Composer
 
-## Learning Laravel
+Database (menggunakan MySQL dalam contoh ini)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Git
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+🚀 Instalasi & Konfigurasi
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Ikuti langkah-langkah berikut untuk menjalankan proyek secara lokal:
 
-## Laravel Sponsors
+1. Clone Repository
+git clone https://github.com/diahanastasya22/qa_technical_test_diah.git
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. Masuk ke Direktori Proyek
+cd qa-technical-test-diah
 
-### Premium Partners
+3. Install Dependensi PHP
+composer install
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+4. Siapkan File Konfigurasi Lingkungan (.env)
 
-## Contributing
+Salin file contoh .env.example menjadi .env.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Untuk pengguna Mac/Linux
+cp .env.example .env
 
-## Code of Conduct
+# Untuk pengguna Windows
+copy .env.example .env
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. Generate Kunci Aplikasi
+php artisan key:generate
 
-## Security Vulnerabilities
+6. Konfigurasi Database
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Buka file .env dan sesuaikan konfigurasi database Anda:
 
-## License
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database_anda
+DB_USERNAME=user_database_anda
+DB_PASSWORD=password_anda
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+💡 Catatan: Pastikan Anda telah membuat database kosong dengan nama yang sesuai sebelum menjalankan migrasi.
+
+7. Jalankan Migrasi & Seeder
+
+Perintah berikut akan membuat tabel dan mengisi data awal dari file JSON:
+
+php artisan migrate --seed
+
+▶️ Menjalankan Aplikasi
+
+Setelah semua langkah di atas selesai, jalankan server lokal dengan:
+
+php artisan serve
+
+
+Aplikasi Anda kini dapat diakses di:
+👉 http://127.0.0.1:8000
+
+📡 Endpoint API
+Mendapatkan Data Transaksi
+
+Method: GET
+URL: http://127.0.0.1:8000/api/transactions
+
+✅ Contoh Response Sukses
+{
+  "data": [
+    {
+      "id": 1372,
+      "productID": "10001",
+      "productName": "Test 1",
+      "amount": "1000",
+      "customerName": "abc",
+      "status": 0,
+      "transactionDate": "2022-07-10 11:14:52",
+      "createBy": "abc",
+      "createOn": "2022-07-10 11:14:52"
+    },
+    {
+      "id": 1373,
+      "productID": "10002",
+      "productName": "Test 2",
+      "amount": "2000",
+      "customerName": "abc",
+      "status": 0,
+      "transactionDate": "2022-07-11 13:14:52",
+      "createBy": "abc",
+      "createOn": "2022-07-10 13:14:52"
+    }
+  ],
+  "status": [
+    {
+      "id": 0,
+      "name": "SUCCESS"
+    },
+    {
+      "id": 1,
+      "name": "FAILED"
+    }
+  ]
+}
